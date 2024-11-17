@@ -1,5 +1,6 @@
 def createstack():
     return []
+
 def push(stack,element):
     stack.append(element)
 def pop(steck):
