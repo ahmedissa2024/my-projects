@@ -1,0 +1,67 @@
+from queue import *
+import time
+printDocument=" "
+printqueuesize=0
+printqueuemaxsize=7
+printQueue = Queue(printqueuesize)
+def PrintQueueSizeMessage():
+    PrintQueueSize=printQueue.qsize()
+    if printqueuesize==0:
+        print("there are np documents weteng for printing")
+    elif printqueuesize==1:
+        print("there are 1 document weteng for printing")
+    else:
+        print("there are",printqueuesize,"documents weteng for printing")
+def addDocument(document):
+    printqueuesize=printQueue.qsize()
+    if printqueuesize==printqueuemaxsize:
+        print("!!",document,"was not sent to print queue. ")
+        print("the print quque is full. ")
+        print()
+        return
+    printQueue.put(document)
+    time.sleep(0.5)
+    print(document,"sent to print queue. ")
+    PrintQueueSizeMessage()
+
+def printDocument():
+    printqueuesize=printQueue.qsize()
+    if printqueuesize==0:
+        print("!! the print queue is empty")
+        print()
+        return
+    printDocument=printQueue.get()
+    time.sleep(1)
+    print("ok-",printDocument,"is printed. ")
+    PrintQueueSizeMessage()
+print()
+addDocument("Document A")
+addDocument("Document B")
+addDocument("Document C")
+addDocument("Document D")
+addDocument("Document E")
+addDocument("Document F")
+addDocument("Document G")
+printDocument()
+addDocument("Document H")
+printDocument()
+addDocument("Document I")
+
+printDocument()
+addDocument("Document J")
+addDocument("Document k")
+printDocument()
+printDocument()
+printDocument()
+printDocument()
+printDocument()
+printDocument()
+printDocument()
+printDocument()
+
+
+
+
+
+
+
