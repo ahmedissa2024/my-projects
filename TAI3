@@ -1,0 +1,76 @@
+class Node:
+    def __init__(self,name):
+        self.name=name
+        self.children=[]
+    def add_child(self,child):
+        self.children.append(child)
+def build_tree():
+    root=Node("a")
+    node_b=Node("b")
+    node_c=Node("c")
+    node_d=Node("d")
+    node_e=Node("e")
+    node_f=Node("f")
+    node_g=Node("g")
+    node_h=Node("h")
+    root.add_child(node_b)
+    root.add_child(node_c)
+    node_b.add_child(node_d)
+    node_b.add_child(node_e)
+    node_c.add_child(node_f)
+    node_c.add_child(node_g)
+    node_d.add_child(node_h)
+    return root
+def print_tree(root,level=0):
+    indent="    "*level
+    print(indent+root.name)
+    for child in root.children:
+        print_tree(child,level+1)
+def bfs(root):
+    queue =[root]
+    result=[]
+    while queue:
+        node=queue.pop(0)
+        result.append(node.name)
+        for child in node.children:
+            queue.append(child)
+    return result
+def dfs(root):
+    stack=[root]
+    result=[]
+    while stack:
+        node=stack.pop()
+        result.append(node.name)
+        for child in reversed(node.children):
+            stack.append(child)
+    return result
+
+root=build_tree()
+print("my tree")
+print_tree(root)
+while True:
+    print("enter your choice: ")
+    print("1.BFS algorithm")
+    print("2.BFS algorithm")
+    print("2.exit")
+    choice=int(input("enter your choce"))
+    if choice==1:
+        result=bfs(root)
+        print("search results by bfs:",result)
+    elif choice==2:
+        result=dfs(root)
+        print("search results by bfs:",result)
+    elif choice==3:
+        print("end of projram")
+        break
+    else:
+        print("error, plase enter choice correct. ")
+
+
+
+
+
+
+
+
+
