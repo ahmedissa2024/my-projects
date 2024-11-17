@@ -1,0 +1,39 @@
+def createstack():
+    return []
+def push(stack,element):
+    stack.append(element)
+def pop(steck):
+    return steck.pop()
+def isEmpty(stack):
+    return len(stack)==0
+newStack=createstack()
+while True:
+ print("the stack so for is:",newStack)
+ print("--------------------------------")
+ print("choose 1 for push")
+ print("choose 1 for pop")
+ print("choose 1 for end")
+ print("-----------------------------------")
+ choice=int(input("enter your choice"))
+ while choice != 1 and choice != 2 and choice !=3:
+   print("error")
+   choice=int(input("enter your choice: "))
+ if choice==1:
+  x=int(input("enter element for push"))
+  push(newStack,x)
+ elif choice==2:
+  if not isEmpty(newStack):
+    print("the pop is:",pop(newStack))
+  else:
+    print("the stack is empty")
+ else:
+     print("end of projram")
+     break;
+
+
+
+
+    
+
+
+    
